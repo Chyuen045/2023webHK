@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JQUERY</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="content">
+  <!-- Ajax 請求的結果將顯示在這裡 -->
+</div>
+
+<script>
+  $(document).ready(function() {
+    https://gw.openapi.org.tw/a8683d10-d6c0-11ea-b0c3-5590cc378f8f/ipromisepopularBranch?limit=[10]
+      }
+    // 當頁面載入完成後，執行這段代碼
+    // 在這裡撰寫您的 Ajax 請求
+
+    $.ajax({
+      url: "https://gw.openapi.org.tw/a8683d10-d6c0-11ea-b0c3-5590cc378f8f/ipromisepopularBranch",  // 將 URL 替換為您要請求的 API 端點
+      method: "GET",  // 可根據您的需求更改為 POST、PUT 或 DELETE
+      dataType: "json",  // 請求的數據類型為 JSON
+      success: function(response) {
+        "data": [
+
+            "result":$[string],
+            "message":$[string],
+            "data":$[string],
+            "id":$[string],
+            "merchant_id":$[string],
+            "name ":$[string],
+            "lon ":$[string],
+            "lat ":$[string],
+            "addr ":$[string],
+            "events": [ "id":$[string],
+          "title":$[string],
+          "detail":$[string],
+          "phone ":$[string],
+          "website ":$[string],
+          "note ":$[string],
+          "start_date ":$[string],
+          "end_date":$[string],
+          "event_pic ":$[string],
+          "merchant_id":$[string],
+          "sort_order":$[string],
+          "branch_id":$[string],
+          "last_update_time":$[string],
+
+      }
+        // 當請求成功時的處理函數
+        // 在這裡處理從伺服器獲取的 JSON 數據
+        // 以下是一個簡單的例子，將數據顯示在頁面上
+
+
+        // 遍歷 JSON 數據並將每個項目顯示在頁面上
+        $.each(response, function(item) {
+          var listItem = $("<li>").text(item.title);
+          content.append(listItem);
+        });
+      },
+      error: function(xhr, status, error) {
+        // 當請求失敗時的處理函數
+        // 在這裡處理錯誤，如顯示錯誤訊息等
+
+        var content = $("#content");
+        content.html("請求失敗。錯誤訊息： " + error);
+      }
+    });
+  });
+</script>
+</body>
+</html>
